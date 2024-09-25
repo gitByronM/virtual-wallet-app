@@ -40,5 +40,11 @@ Para montar el proyecto, sigue estos pasos:
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/proyecto-billetera-virtual.git
-   cd proyecto-billetera-virtual
+   git clone https://github.com/gitByronM/virtual-wallet-app.git
+   cd virtual-wallet-app
+
+2. Ejecuta Docker Compose para levantar los servicios:
+    ```bash
+    docker-compose up
+
+3. Accede al cliente web desde tu navegador y prueba las funcionalidades de la billetera virtual.
