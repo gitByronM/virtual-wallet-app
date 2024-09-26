@@ -16,7 +16,7 @@ import {
             status: 'success',
             code: context.switchToHttp().getResponse().statusCode,
             message: data.message || 'Operación exitosa',
-            data: data.data || data,
+            data: data.data,
           };
         })
       );

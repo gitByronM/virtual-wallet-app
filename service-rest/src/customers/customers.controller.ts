@@ -2,6 +2,8 @@ import { Controller, Post, Put, Body, Get, Param, BadRequestException, UsePipes,
 import { CustomersService } from './customers.service';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { RechargeWalletDto } from './dto/recharge-wallet.dto';
+import { CreatePaymentDto } from './dto/create-payment.dto';
+import { ConfirmPaymentDto } from './dto/confirm-payment.dto';
 
 @Controller('customers')
 export class CustomersController {
@@ -25,5 +27,19 @@ export class CustomersController {
     async rechargeWallet(@Body() rechargeWalletDto: RechargeWalletDto) {
         const updatedCustomer = await this.customersService.rechargeWallet(rechargeWalletDto);
         return { status: 'success', message: 'Billetera actualizada con éxito.', data: updatedCustomer };
+    }
+
+    @Post('payment')
+    @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+    async createPayment(@Body() createPaymentDto: CreatePaymentDto) {
+        const sessionId = await this.customersService.createPayment(createPaymentDto);
+        return { status: 'success', code: 200, message: 'Se ha enviado un token de confirmación a tu email.', data: sessionId };
+    }
+
+    @Post('payment/confirm')
+    @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+    async confirmPayment(@Body() confirmPaymentDto: ConfirmPaymentDto) {
+        const customer = await this.customersService.confirmPayment(confirmPaymentDto);
+        return { status: 'success', code: 200, message: 'Pago confirmado. Se ha descontado el monto de tu billetera.', data: customer };
     }
 }
