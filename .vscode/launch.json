@@ -5,16 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "command": "npm start",
+            "name": "Iniciar service-rest",
             "request": "launch",
-            "name": "Iniciar el programa",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}\\service-rest\\src\\customers\\customers.service.ts",
-            "outFiles": [
-                "${workspaceFolder}/**/*.js"
-            ]
-        }
-    ]
+            "type": "node-terminal",
+            "cwd": "${workspaceFolder}/service-rest",
+        },
+        {
+            "command": "npm start",
+            "name": "Iniciar bff",
+            "request": "launch",
+            "type": "node-terminal",
+            "cwd": "${workspaceFolder}/bff",
+        },
+      ]
 }
