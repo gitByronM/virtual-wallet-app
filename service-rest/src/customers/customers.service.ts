@@ -9,6 +9,7 @@ import { ConfirmPaymentDto } from './dto/confirm-payment.dto';
 import { v4 as uuidv4 } from 'uuid';
 import { MailerService } from '@nestjs-modules/mailer';
 import { PendingPaymentsService } from 'pending-payments/pending-payments.service';
+import { CheckBalanceDto } from './dto/check-balance.dto';
 
 @Injectable()
 export class CustomersService {
@@ -85,13 +86,13 @@ export class CustomersService {
     
         const customer = await this.customerModel.findOne({ document, phone }).exec();
         if (!customer) {
-          throw new NotFoundException('Customer not found');
+          throw new NotFoundException('Cliente no encontrado.');
         }
     
         const pendingPayment = await this.pendingPaymentsService.findPendingPayment(customer._id, token, sessionId);
     
         if (customer.balance < pendingPayment.amount) {
-          throw new BadRequestException('Insufficient balance');
+          throw new BadRequestException('Balance insuficiente.');
         }
     
         customer.balance -= pendingPayment.amount;
@@ -99,5 +100,16 @@ export class CustomersService {
         await this.pendingPaymentsService.deletePendingPayment(token);
     
         return customer.save();
+    }
+
+    async checkBalance(checkBalanceDto: CheckBalanceDto): Promise<{ balance: number }> {
+        const { document, phone } = checkBalanceDto;
+    
+        const customer = await this.customerModel.findOne({ document, phone }).exec();
+        if (!customer) {
+          throw new NotFoundException('Cliente no encontrado.');
+        }
+    
+        return { balance: customer.balance };
       }
 }

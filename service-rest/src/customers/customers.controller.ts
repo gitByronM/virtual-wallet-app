@@ -4,6 +4,7 @@ import { CreateCustomerDto } from './dto/create-customer.dto';
 import { RechargeWalletDto } from './dto/recharge-wallet.dto';
 import { CreatePaymentDto } from './dto/create-payment.dto';
 import { ConfirmPaymentDto } from './dto/confirm-payment.dto';
+import { CheckBalanceDto } from './dto/check-balance.dto';
 
 @Controller('customers')
 export class CustomersController {
@@ -41,5 +42,12 @@ export class CustomersController {
     async confirmPayment(@Body() confirmPaymentDto: ConfirmPaymentDto) {
         const customer = await this.customersService.confirmPayment(confirmPaymentDto);
         return { status: 'success', code: 200, message: 'Pago confirmado. Se ha descontado el monto de tu billetera.', data: customer };
+    }
+
+    @Post('balance')
+    @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+    async checkBalance(@Body() checkBalanceDto: CheckBalanceDto) {
+        const balance = await this.customersService.checkBalance(checkBalanceDto);
+        return { status: 'success', code: 200, message: 'Balance recuperado con éxito.', data: balance };
     }
 }
