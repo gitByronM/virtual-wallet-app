@@ -12,6 +12,7 @@ export class CreateCustomerDto {
   @IsEmail({}, { message: 'Invalid email format' })
   email: string;
 
-  @IsPhoneNumber(null, { message: 'Invalid phone number' })
+  @IsString()
+  @IsNotEmpty({ message: 'Phone is required' })
   phone: string;
 }
