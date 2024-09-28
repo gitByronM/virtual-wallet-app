@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  service-rest:
+    build: ./service-rest
+    container_name: service-rest
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/walletdb
+      GOOGLE_USER: ${GOOGLE_USER}
+      GOOGLE_APP_PASS: ${GOOGLE_APP_PASS}
+    depends_on:
+      - mongo
+
+  bff:
+    build: ./bff
+    container_name: bff
+    restart: unless-stopped
+    ports:
+      - '3001:3001'
+    environment:
+      SERVICE_REST_URL: http://service-rest:3000
+    depends_on:
+      - service-rest
+
+  client:
+    build: ./client
+    container_name: client
+    restart: unless-stopped
+    ports:
+      - '80:80'
+    environment:
+      VITE_BFF_URL: http://bff:3001
+    depends_on:
+      - bff
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: unless-stopped
+    ports:
+      - '27018:27017'
+    environment:
+      MONGO_INITDB_DATABASE: walletdb
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:

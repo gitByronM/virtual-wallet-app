@@ -14,7 +14,7 @@ export class CustomersController {
     @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
     async createCustomer(@Body() createCustomerDto: CreateCustomerDto) {
         const customer = await this.customersService.createCustomer(createCustomerDto);
-        return { status: 'success', message: 'Cliente registrado exitosamente.', data: customer };
+        return { status: 'success', message: 'Cliente registrado exitosamente.' };
     }
 
     @Get(':document')
@@ -27,7 +27,7 @@ export class CustomersController {
     @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
     async rechargeWallet(@Body() rechargeWalletDto: RechargeWalletDto) {
         const updatedCustomer = await this.customersService.rechargeWallet(rechargeWalletDto);
-        return { status: 'success', message: 'Billetera actualizada con éxito.', data: updatedCustomer };
+        return { status: 'success', message: 'Billetera actualizada con éxito.' };
     }
 
     @Post('payment')
@@ -41,7 +41,7 @@ export class CustomersController {
     @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
     async confirmPayment(@Body() confirmPaymentDto: ConfirmPaymentDto) {
         const customer = await this.customersService.confirmPayment(confirmPaymentDto);
-        return { status: 'success', code: 200, message: 'Pago confirmado. Se ha descontado el monto de tu billetera.', data: customer };
+        return { status: 'success', code: 200, message: 'Pago confirmado. Se ha descontado el monto de tu billetera.' };
     }
 
     @Post('balance')

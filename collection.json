@@ -1,0 +1,1077 @@
+{
+	"info": {
+		"_postman_id": "fff479f5-9488-48ad-aba3-5e384e2f3b0a",
+		"name": "Virtual Wallet ByronM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16993997"
+	},
+	"item": [
+		{
+			"name": "bff",
+			"item": [
+				{
+					"name": "BFF - Registrar cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "document",
+									"value": "967812",
+									"type": "text"
+								},
+								{
+									"key": "names",
+									"value": "Luis Suarez",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "luis4231@yopmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "+573145678912",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/customers/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"customers",
+								"create"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST [http://localhost:3000/clientes/registro](http://localhost:3000/clientes/registro) -d \"documento=123456&nombres=Juan Pérez&email=juan@example.com&celular=5551234\""
+					},
+					"response": [
+						{
+							"name": "BFF - Registrar cliente - OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "document",
+											"value": "967812",
+											"type": "text"
+										},
+										{
+											"key": "names",
+											"value": "Luis Suarez",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "luis4231@yopmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "+573145678912",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3001/customers/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4c-Whs9XmOe1nNp2zub0+bGtIAh+kE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Sep 2024 19:08:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"code\": 200,\n    \"message\": \"Cliente registrado exitosamente.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "BFF - Recargar billetera",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"document\":\"967812\",\"phone\":\"+573145678912\",\"amount\":100}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/customers/recharge",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"customers",
+								"recharge"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://localhost:3000/customers/recharge -H \"Content-Type: application/json\" -d '{\"document\":\"123456\",\"phone\":\"+573001234567\",\"amount\":100}'\r\n"
+					},
+					"response": [
+						{
+							"name": "BFF - Recargar billetera - OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"document\":\"967812\",\"phone\":\"+573145678912\",\"amount\":100}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/customers/recharge",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers",
+										"recharge"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4d-vENga6h61oqpyRCcoa6Lbn5/1y4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Sep 2024 19:12:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"code\": 200,\n    \"message\": \"Billetera actualizada con éxito.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "BFF - Realizar pago",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": \"967812\",\r\n  \"phone\": \"+573145678912\",\r\n  \"amount\": 25\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/customers/payment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"customers",
+								"payment"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "BFF - Realizar pago - OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"document\": \"967812\",\r\n  \"phone\": \"+573145678912\",\r\n  \"amount\": 25\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/customers/payment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers",
+										"payment"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "155"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9b-RExQYzbLW+8W6OVHeoLFSL8NzJM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Sep 2024 19:13:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"code\": 200,\n    \"message\": \"Se ha enviado un token de confirmación a tu email.\",\n    \"data\": {\n        \"sessionId\": \"3e1b2d74-6b0e-4c80-b1fc-25ff60ff5179\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "BFF - Confirmar pago",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": \"967812\",\r\n  \"phone\": \"+573145678912\",\r\n  \"token\": \"9048b5\",\r\n  \"sessionId\": \"3e1b2d74-6b0e-4c80-b1fc-25ff60ff5179\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/customers/payment/confirm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"customers",
+								"payment",
+								"confirm"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "BFF - Confirmar pago - OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"document\": \"967812\",\r\n  \"phone\": \"+573145678912\",\r\n  \"token\": \"9048b5\",\r\n  \"sessionId\": \"3e1b2d74-6b0e-4c80-b1fc-25ff60ff5179\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/customers/payment/confirm",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers",
+										"payment",
+										"confirm"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "103"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"67-H4nfnyc573kSl3hURUOaBgNeHU8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Sep 2024 19:15:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"code\": 200,\n    \"message\": \"Pago confirmado. Se ha descontado el monto de tu billetera.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "BFF - Consultar saldo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": \"967812\",\r\n  \"phone\": \"+573145678912\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/customers/balance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"customers",
+								"balance"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "BFF - Consultar saldo - OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"document\": \"967812\",\r\n  \"phone\": \"+573145678912\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/customers/balance",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers",
+										"balance"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "97"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"61-FxPiZNEfrUEYXuoWBT9i/KPBYqg\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Sep 2024 19:12:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"code\": 200,\n    \"message\": \"Balance recuperado con éxito.\",\n    \"data\": {\n        \"balance\": 100\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Registrar cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "document",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "names",
+							"value": "Juan Pérez",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "random4231@yopmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "+573001234567",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/customers/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers",
+						"create"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:3000/clientes/registro -d \"documento=123456&nombres=Juan Pérez&email=juan@example.com&celular=5551234\"\r\n"
+			},
+			"response": [
+				{
+					"name": "Registrar cliente - OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "document",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "names",
+									"value": "Juan Pérez",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "random4231@yopmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "+573001234567",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/customers/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customers",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "76"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4c-Whs9XmOe1nNp2zub0+bGtIAh+kE\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Sep 2024 19:21:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"code\": 200,\n    \"message\": \"Cliente registrado exitosamente.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Recargar billetera",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"document\":\"123456\",\"phone\":\"+573001234567\",\"amount\":1500}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/customers/recharge",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers",
+						"recharge"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:3000/customers/recharge -H \"Content-Type: application/json\" -d '{\"document\":\"123456\",\"phone\":\"+573001234567\",\"amount\":100}'\r\n"
+			},
+			"response": [
+				{
+					"name": "Recargar billetera - OK",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"document\":\"123456\",\"phone\":\"+573001234567\",\"amount\":1500}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/customers/recharge",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customers",
+								"recharge"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "77"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4d-vENga6h61oqpyRCcoa6Lbn5/1y4\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Sep 2024 19:21:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"code\": 200,\n    \"message\": \"Billetera actualizada con éxito.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Realizar pago",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"document\": \"123456\",\r\n  \"phone\": \"+573001234567\",\r\n  \"amount\": 50\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/customers/payment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers",
+						"payment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Realizar pago - OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": \"123456\",\r\n  \"phone\": \"+573001234567\",\r\n  \"amount\": 50\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/customers/payment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customers",
+								"payment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "155"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9b-f7T1uaEQwTkEovaYEU5LBzgd2Fk\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Sep 2024 19:22:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"code\": 200,\n    \"message\": \"Se ha enviado un token de confirmación a tu email.\",\n    \"data\": {\n        \"sessionId\": \"d6c19bfe-c87a-43f1-9cf2-b52e5c8e74ab\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Confirmar pago",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"document\": \"123456\",\r\n  \"phone\": \"+573001234567\",\r\n  \"token\": \"847624\",\r\n  \"sessionId\": \"d6c19bfe-c87a-43f1-9cf2-b52e5c8e74ab\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/customers/payment/confirm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers",
+						"payment",
+						"confirm"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Confirmar pago - OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": \"123456\",\r\n  \"phone\": \"+573001234567\",\r\n  \"token\": \"847624\",\r\n  \"sessionId\": \"d6c19bfe-c87a-43f1-9cf2-b52e5c8e74ab\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/customers/payment/confirm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customers",
+								"payment",
+								"confirm"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "103"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"67-H4nfnyc573kSl3hURUOaBgNeHU8\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Sep 2024 19:23:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"code\": 200,\n    \"message\": \"Pago confirmado. Se ha descontado el monto de tu billetera.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Consultar saldo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"document\": \"123456\",\r\n  \"phone\": \"+573001234567\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/customers/balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers",
+						"balance"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Consultar saldo - OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": \"123456\",\r\n  \"phone\": \"+573001234567\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/customers/balance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customers",
+								"balance"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "98"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"62-uEOiDzdhE4fc7hPTgoFzjrDxhLY\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 27 Sep 2024 19:21:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"code\": 200,\n    \"message\": \"Balance recuperado con éxito.\",\n    \"data\": {\n        \"balance\": 1500\n    }\n}"
+				}
+			]
+		}
+	]
+}

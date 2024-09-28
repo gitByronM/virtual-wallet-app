@@ -2,6 +2,70 @@
 
 Este repositorio presenta la solución a la prueba técnica solicitada por **ePayco** para el puesto de **Desarrollador Fullstack**. El objetivo de este proyecto es simular una **billetera virtual** con funcionalidades básicas de registro, recarga de saldo, pago y confirmación, implementando dos servicios REST y un frontend.
 
+## Configuración y Montaje
+
+**Nota**:
+Si se tiene alguna duda sobre el proceso de configuración y montaje se puede escribir al siguiente correo: **byronmiranda0401@gmail.com**
+
+Este proyecto incluye un archivo `docker-compose.yml` que facilita la ejecución de los servicios backend (service-rest1 y bff) y el frontend (client) en contenedores Docker. 
+
+Para montar el proyecto, sigue estos pasos:
+
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/gitByronM/virtual-wallet-app.git
+   cd virtual-wallet-app
+
+
+2. Ejecuta Docker Compose para levantar los servicios:
+    ```bash
+    docker-compose up --build
+    ```
+
+   > **Nota importante**: 
+   > Durante el proceso de construcción de las imágenes con `docker-compose up --build`, es posible que la instalación de las dependencias falle en alguna de las aplicaciones (especialmente al construir las imágenes de `service-rest`, `bff` o `frontend`). 
+   > Si esto ocurre, simplemente vuelve a ejecutar el comando `docker-compose up --build` hasta que las imágenes se construyan correctamente.
+
+3. Accede al cliente web desde tu navegador **http://localhost:80** y prueba las funcionalidades de la billetera virtual.
+
+## Como probar las APIs y verificar la base de datos
+
+1. Primero verificamos que el contenedor este levantado y ejecutándose (ver Configuración y Montaje)
+
+2. Para probar las APIs a traves de postman debes apuntar a **http://localhost:3000** (service-rest) y a **http://localhost:3001** (bff / service-rest2)
+
+3. Si deseas verificar la información en la base de datos debes conectarte desde Mongo DB Compass a **mongodb://localhost:27018/walletdb**
+
+## Documentación de las APIs
+
+### Colección de Postman
+
+Para probar las APIs del proyecto, hem incluido una colección documentada en **Postman** que cubre todos los endpoints, con ejemplos de solicitudes y respuestas para cada una de las funcionalidades.
+
+#### Cómo importar la colección:
+
+1. En la raíz del del repositorio, encontrarás el archivo **`collection.json`** que contiene la documentación completa de las APIs.
+2. Abre **Postman** en tu máquina.
+3. Haz clic en el botón **"Import"** en la esquina superior izquierda de la interfaz de Postman.
+4. Selecciona la opción **"Upload Files"** y carga el archivo **`collection.json`** desde el repositorio.
+5. Una vez cargada, la colección aparecerá en tu espacio de trabajo de Postman, donde podrás interactuar con todos los endpoints documentados.
+
+### Endpoints incluidos:
+
+- **Registro de Cliente**: Permite crear un nuevo cliente.
+- **Recargar Billetera**: Permite recargar el saldo en la billetera de un cliente.
+- **Realizar Pago**: Inicia un proceso de pago enviando un token de confirmación al correo del cliente.
+- **Confirmar Pago**: Valida el token de pago, el id de sesión y confirma el pago realizado.
+- **Consultar Saldo**: Recupera el saldo actual de la billetera del cliente.
+
+### ¿Qué incluye la documentación de Postman?
+- **Ejemplos de solicitudes**: Cada endpoint tiene ejemplos predefinidos de cómo deben enviarse los parámetros.
+- **Respuestas esperadas**: Se han incluido ejemplos de respuestas para escenarios exitosos y de error.
+- **Validaciones y errores comunes**: Cada endpoint incluye posibles respuestas de validación y mensajes de error para facilitar las pruebas.
+
+### Nota importante:
+Para ejecutar correctamente las solicitudes de Postman, asegúrate de que el proyecto esté corriendo en tu entorno local. Los endpoints deben estar configurados correctamente en el archivo `collection.json`.
+
 ## Estructura del Repositorio
 
 El proyecto está organizado en tres carpetas principales, cada una con un propósito específico:
@@ -31,20 +95,3 @@ La billetera virtual debe cumplir con las siguientes funcionalidades:
 
 4. **Consulta de Saldo**:
    - El cliente puede consultar el saldo de su billetera proporcionando su documento y número de celular.
-
-## Configuración y Montaje
-
-Este proyecto incluye un archivo `docker-compose.yml` que facilita la ejecución de los servicios backend (service-rest1 y bff) y el frontend (client) en contenedores Docker. 
-
-Para montar el proyecto, sigue estos pasos:
-
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/gitByronM/virtual-wallet-app.git
-   cd virtual-wallet-app
-
-2. Ejecuta Docker Compose para levantar los servicios:
-    ```bash
-    docker-compose up
-
-3. Accede al cliente web desde tu navegador y prueba las funcionalidades de la billetera virtual.

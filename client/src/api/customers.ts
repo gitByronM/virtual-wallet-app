@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 
 const BFF_URL = import.meta.env.VITE_BFF_URL;
 
@@ -61,7 +61,7 @@ export const createClient = async (document: string, names: string, email: strin
   };
 
   try {
-    const response = await axios.post(`${BFF_URL}/customers/create`, body);
+    await axios.post(`${BFF_URL}/customers/create`, body);
     return { ...body, balance: 0 };
   } catch (err) {
     throw new Error('Error al crear cliente.');
